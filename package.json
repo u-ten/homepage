@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "deploy": "git add out/ -f && git commit -m \"Deploy to gh-pages\" && git push origin `git subtree split --prefix out main`:gh-pages --force"
   },
   "dependencies": {
     "next": "15.2.3",
