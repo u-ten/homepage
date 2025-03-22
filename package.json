@@ -8,8 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build",
-    "deploy": "git add out/ -f && git commit -m \"Deploy to gh-pages\" && git push origin `git subtree split --prefix out main`:gh-pages --force"
+    "build:prod": "NODE_ENV=production next build",
+    "predeploy": "rm -rf .next .next-prod out && npm run build:prod",
+    "deploy": "git add out/ -f && git commit -m \"Deploy to gh-pages with .nojekyll\" && git push origin `git subtree split --prefix out main`:gh-pages --force"
   },
   "dependencies": {
     "next": "15.2.3",
