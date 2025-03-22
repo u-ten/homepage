@@ -3,13 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 0, 0, 0;
+  --foreground: 255, 255, 255;
+  --background: 17, 17, 17;
+  --accent: 99, 102, 241;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
   overflow-x: hidden;
 }
 
@@ -18,11 +19,11 @@ html {
   scroll-behavior: smooth;
 }
 
-/* アップルスタイルのアニメーション */
+/* モダンなアニメーション */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -31,77 +32,66 @@ html {
 }
 
 .animate-fade-up {
-  animation: fadeUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animation-delay-200 {
-  animation-delay: 0.2s;
-}
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
 
-/* スクロールアニメーション */
-@media (prefers-reduced-motion: no-preference) {
-  .scroll-animate {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .scroll-animate.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* スティッキーセクション */
-.sticky-section {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* テキストスタイル */
+/* モダンなテキストスタイル */
 h1, h2, h3, h4, h5, h6 {
-  font-feature-settings: "salt" on, "ss01" on;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
+  font-feature-settings: "ss01" on, "ss02" on;
 }
 
-/* アップルスタイルのボタン */
-.apple-button {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 999px;
-  padding: 1rem 2rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
+/* モダンなボタン */
+.btn-primary {
+  @apply px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium 
+         transition-all duration-200 ease-out
+         hover:bg-indigo-500 hover:scale-[1.02]
+         active:scale-[0.98];
 }
 
-.apple-button:hover {
-  background: rgba(255, 255, 255, 0.2);
+.btn-secondary {
+  @apply px-6 py-3 bg-white/10 text-white rounded-lg font-medium
+         backdrop-blur-sm transition-all duration-200 ease-out
+         hover:bg-white/20 hover:scale-[1.02]
+         active:scale-[0.98];
 }
 
-/* アップルスタイルのグラデーション */
-.apple-gradient {
-  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+/* モダンなカード */
+.card {
+  @apply bg-white/5 rounded-2xl p-8 backdrop-blur-sm;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* アップルスタイルのカード */
-.apple-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* アップルスタイルのテキストグラデーション */
+/* グラデーションテキスト */
 .gradient-text {
-  background: linear-gradient(to right, #fff, #999);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  @apply bg-clip-text text-transparent bg-gradient-to-r 
+         from-indigo-500 to-purple-500;
+}
+
+/* モダンなグリッドレイアウト */
+.modern-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* Swiper カスタマイズ */
+.swiper {
+  @apply w-full h-full;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-white opacity-50 hover:opacity-100 transition-opacity;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-white/50;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-white;
 }
