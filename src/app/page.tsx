@@ -11,12 +11,12 @@ interface AppCard {
 
 const apps: AppCard[] = [
   {
-    title: "アプリ1",
-    description: "革新的なデザインと直感的な操作性を追求したアプリケーション。",
-    imageUrl: "/app1-screenshot.png",
-    appUrl: "https://example.com/app1",
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
-    color: "bg-gradient-to-br from-purple-600 to-blue-500",
+    title: "QR Generator",
+    description: "シンプルで美しいQRコードを瞬時に生成。\nテキスト、URL、連絡先情報など、あらゆるデータをQRコードに変換できます。",
+    imageUrl: "/qr-generator-screenshot.png",
+    appUrl: "https://example.com/qr-generator",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "QR Code API"],
+    color: "bg-gradient-to-br from-blue-600 to-purple-600",
   },
   // 他のアプリを追加
 ];
@@ -29,11 +29,32 @@ export default function Home() {
         <div className="sticky top-0 h-screen w-full flex items-center justify-center">
           <div className="text-center max-w-[800px] mx-auto px-4 pt-32">
             <h1 className="text-7xl md:text-[130px] font-bold leading-tight tracking-tight">
-              <span className="block transform translate-y-8 opacity-0 animate-fade-up">革新的な</span>
+              <span className="block transform translate-y-8 opacity-0 animate-fade-up">シンプルで</span>
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 transform translate-y-8 opacity-0 animate-fade-up animation-delay-200">
-                アプリケーション
+                美しいツール
               </span>
             </h1>
+            <p className="text-xl md:text-2xl text-gray-400 mt-8 transform translate-y-8 opacity-0 animate-fade-up animation-delay-400">
+              使いやすさと機能性を追求した
+              <br />
+              アプリケーションを制作しています
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Coming Soonセクション */}
+      <section className="relative min-h-screen flex items-center justify-center py-32 before:absolute before:inset-0 before:bg-gradient-to-b before:from-black/0 before:to-black/100">
+        <div className="w-full max-w-[1200px] mx-auto px-4 relative z-10">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+              新しいアプリケーションを開発中
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              より便利で革新的なアプリケーションを
+              <br />
+              順次公開していく予定です
+            </p>
           </div>
         </div>
       </section>
