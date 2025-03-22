@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -17,6 +18,7 @@ interface AppCard {
   appUrl: string;
   technologies: string[];
   color: string;
+  privacyUrl: string;
 }
 
 const apps: AppCard[] = [
@@ -25,17 +27,18 @@ const apps: AppCard[] = [
     description: "ランダムなQRコードを生成するアプリケーションです。",
     images: [
       {
-        url: "/qr-generator-screenshot1.png",
+        url: "/homepage/qr-generator-screenshot1.PNG",
         alt: "QRジェネレーターのメイン画面"
       },
       {
-        url: "/qr-generator-screenshot2.png",
+        url: "/homepage/qr-generator-screenshot2.PNG",
         alt: "QRコード生成画面"
       },
     ],
     appUrl: "https://example.com/qr-generator",
     technologies: ["QRコード生成", "ランダムQRコード"],
     color: "bg-gradient-to-br from-indigo-600 to-purple-600",
+    privacyUrl: "/privacy-random-qr-gen",
   },
 ];
 
@@ -96,14 +99,22 @@ export default function Apps() {
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={app.appUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary inline-flex"
-                  >
-                    使ってみる
-                  </a>
+                  <div className="flex gap-4 items-center">
+                    <a
+                      href={app.appUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary inline-flex"
+                    >
+                      使ってみる
+                    </a>
+                    <Link
+                      href={app.privacyUrl}
+                      className="text-sm text-gray-400 hover:text-white transition-colors"
+                    >
+                      プライバシーポリシー
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
