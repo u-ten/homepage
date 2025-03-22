@@ -4,13 +4,13 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  --background-rgb: 0, 0, 0;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
+  overflow-x: hidden;
 }
 
 /* スムーズスクロール */
@@ -19,10 +19,10 @@ html {
 }
 
 /* アップルスタイルのアニメーション */
-@keyframes fadeIn {
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -30,22 +30,72 @@ html {
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 1s ease-out forwards;
+.animate-fade-up {
+  animation: fadeUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* スクロールベースのアニメーション */
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* スクロールアニメーション */
 @media (prefers-reduced-motion: no-preference) {
   .scroll-animate {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .scroll-animate.visible {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* スティッキーセクション */
+.sticky-section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* テキストスタイル */
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: "salt" on, "ss01" on;
+  letter-spacing: -0.03em;
+}
+
+/* アップルスタイルのボタン */
+.apple-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.apple-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* アップルスタイルのグラデーション */
+.apple-gradient {
+  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+}
+
+/* アップルスタイルのカード */
+.apple-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* アップルスタイルのテキストグラデーション */
